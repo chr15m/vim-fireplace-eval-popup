@@ -76,12 +76,11 @@ function! s:ShowEvalPopup()
     endif
 
     " Create the popup with the result
-    let l:cursor_line = line('.')
-    let l:cursor_col = wincol()
     let g:fireplace_eval_popup_id = popup_create(l:content, {
-        \ 'line': l:cursor_line + 1,
-        \ 'col': l:cursor_col,
-        \ 'highlight': 'Visual',
+        \ 'pos': 'topleft',
+        \ 'line': winline(),
+        \ 'col': virtcol('$') + (wincol() - virtcol('.')) + 1,
+        \ 'highlight': 'Comment',
         \ 'moved': 'any',
         \ 'callback': function('s:PopupClosed')
         \ })
