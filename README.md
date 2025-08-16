@@ -1,4 +1,6 @@
-This vim plugin hooks into [vim-fireplace](https://github.com/tpope/vim-fireplace)'s to display CIDER-style inline evaluation results, in addition to printing results at the bottom of the screen.
+Vim plugin to display CIDER-style inline evaluation results from [vim-fireplace](https://github.com/tpope/vim-fireplace).
+
+This plugin hooks into vim-fireplace via `FireplaceEvalPost` and displays the evaluation results inline, in addition to printing results at the bottom of the screen.
 
 ```
 (inc 0) => 1
