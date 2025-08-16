@@ -75,6 +75,14 @@ function! s:ShowEvalPopup()
         return
     endif
 
+    " Prefix the output with "=>"
+    for i in range(len(l:content))
+        if l:content[i] !~# '^\s*;'
+            let l:content[i] = '=> ' . l:content[i]
+            break
+        endif
+    endfor
+
     " Create the popup with the result
     let g:fireplace_eval_popup_id = popup_create(l:content, {
         \ 'pos': 'topleft',
